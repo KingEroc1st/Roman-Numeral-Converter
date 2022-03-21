@@ -1,0 +1,49 @@
+function convertToRoman(num) {
+
+const variables = {'1' : 'I', '5' : 'V', '10' : 'X', '50' : 'L', '100' : 'C', '500' : 'D', '1000': 'M'};
+let digits = ((num + "").split(""));
+
+
+let romdisplay = [];
+for (let i=0; i<digits.length; i++){
+  let romcount = Math.pow(10, digits.length-(i+1));
+  
+  if(digits[i] >= 1 && digits[i] < 4){
+    for (let j=0; j<digits[i]; j++)
+    romdisplay.push(romcount)
+  }
+  else if(digits[i] > 4 && digits[i] < 9){
+    romdisplay.push(5 * romcount)
+    for (let j=0; j<digits[i]-5; j++)
+    romdisplay.push(romcount)
+  }  
+  else if(digits[i] == 4){
+    romdisplay.push(romcount);
+    romdisplay.push(5 * romcount);
+  }
+  else if(digits[i] == 9){
+    romdisplay.push(romcount);
+    romdisplay.push(10 * romcount);
+    
+  }
+  // console.log(romdisplay)
+  // console.log(digits[i])
+
+}
+
+let translation = [];
+
+for(const item of romdisplay){
+  // return String(variables[item]);
+  translation.push(String(variables[item]));
+  console.log(translation.join(""));
+}
+
+return translation.join("")
+
+
+
+
+}
+
+convertToRoman(12);
