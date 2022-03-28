@@ -23,27 +23,17 @@ for (let i=0; i<digits.length; i++){
   }
   else if(digits[i] == 9){
     romdisplay.push(romcount);
-    romdisplay.push(10 * romcount);
-    
+    romdisplay.push(10 * romcount);    
   }
-  // console.log(romdisplay)
-  // console.log(digits[i])
-
 }
 
 let translation = [];
 
 for(const item of romdisplay){
-  // return String(variables[item]);
   translation.push(String(variables[item]));
-  console.log(translation.join(""));
 }
 
 return translation.join("")
-
-
-
-
 }
 
 convertToRoman(12);
